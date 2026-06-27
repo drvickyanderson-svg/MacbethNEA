@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macbeth – Unit 5 Task A Revision | Llanwern High School</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --ink: #1a1218;
+    --parchment: #f5f0e8;
+    --blood: #8b1a1a;
+    --gold: #c9942a;
+    --shadow: #2d1f2e;
+    --mist: #e8e2d4;
+    --pale: #faf7f2;
+    --accent: #5c2d6e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--ink);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--shadow);
+    color: var(--parchment);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 60%, rgba(139,26,26,0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 30%, rgba(92,45,110,0.2) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(245,240,232,0.7);
+    margin-bottom: 1.5rem;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .pill {
+    background: rgba(201,148,42,0.2);
+    border: 1px solid rgba(201,148,42,0.4);
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+
+  /* NAV TABS */
+  .nav-tabs {
+    background: var(--shadow);
+    border-top: 1px solid rgba(245,240,232,0.1);
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: rgba(245,240,232,0.5);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.9rem 1.2rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .tab-btn:hover:not(.active) {
+    color: var(--parchment);
+  }
+
+  /* MAIN */
+  main {
+    background: var(--pale);
+    min-height: 60vh;
+  }
+  .tab-content { display: none; padding: 2rem 1.5rem; max-width: 860px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  /* SECTION HEADERS */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--shadow);
+    margin-bottom: 0.3rem;
+  }
+  .section-sub {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 1.8rem;
+    border-bottom: 1px solid var(--mist);
+    padding-bottom: 1rem;
+  }
+
+  /* CARDS */
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.4rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid var(--mist);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--shadow);
+    margin-bottom: 0.6rem;
+  }
+  .card p, .card li {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #333;
+  }
+  .card ul { padding-left: 1.2rem; }
+  .card li { margin-bottom: 0.3rem; }
+
+  /* MARK SCHEME BANDS */
+  .band {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 1rem;
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin-bottom: 0.8rem;
+    border-left: 4px solid var(--mist);
+    border: 1px solid var(--mist);
+  }
+  .band.b5 { border-left-color: #2d7d46; }
+  .band.b4 { border-left-color: #4a9e6a; }
+  .band.b3 { border-left-color: var(--gold); }
+  .band.b2 { border-left-color: #c97a2a; }
+  .band.b1 { border-left-color: var(--blood); }
+  .band-label { font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: #555; padding-top: 2px; }
+  .band-marks { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--shadow); }
+  .band-body { font-size: 0.83rem; line-height: 1.6; color: #333; }
+  .band-body strong { color: var(--shadow); }
+
+  /* QUOTE CARDS */
+  .quote-grid { display: grid; gap: 1rem; }
+  @media(min-width: 600px) { .quote-grid { grid-template-columns: 1fr 1fr; } }
+  .qcard {
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem;
+    border: 1px solid var(--mist);
+    cursor: pointer;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .qcard:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); border-color: var(--gold); }
+  .qcard-character {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .qcard-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--shadow);
+    line-height: 1.5;
+    margin-bottom: 0.6rem;
+  }
+  .qcard-analysis {
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.55;
+    display: none;
+    border-top: 1px solid var(--mist);
+    padding-top: 0.6rem;
+    margin-top: 0.2rem;
+  }
+  .qcard.open .qcard-analysis { display: block; }
+  .qcard-hint {
+    font-size: 0.72rem;
+    color: #aaa;
+    font-style: italic;
+    margin-top: 0.4rem;
+  }
+  .qcard.open .qcard-hint { display: none; }
+  .qcard-tag {
+    display: inline-block;
+    background: rgba(139,26,26,0.08);
+    color: var(--blood);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    margin-right: 0.3rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* PARAGRAPH BUILDER */
+  .pb-instruction {
+    background: rgba(92,45,110,0.08);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.2rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--shadow);
+    margin-bottom: 1.5rem;
+  }
+  .pb-slot {
+    background: white;
+    border-radius: 10px;
+    padding: 1.3rem;
+    margin-bottom: 1rem;
+    border: 2px dashed var(--mist);
+    min-height: 90px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .pb-slot.correct { border-color: #2d7d46; background: rgba(45,125,70,0.05); }
+  .pb-slot.wrong { border-color: var(--blood); background: rgba(139,26,26,0.05); }
+  .pb-slot-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 0.6rem;
+  }
+  .pb-slot p { font-size: 0.85rem; color: #555; font-style: italic; }
+  .pb-pieces { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.2rem 0; }
+  .pb-piece {
+    background: var(--shadow);
+    color: var(--parchment);
+    font-size: 0.8rem;
+    line-height: 1.45;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    max-width: 260px;
+    transition: background 0.15s, transform 0.1s;
+    user-select: none;
+  }
+  .pb-piece:hover { background: var(--blood); transform: translateY(-1px); }
+  .pb-piece.used { opacity: 0.3; pointer-events: none; }
+  .pb-feedback {
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--shadow);
+    margin-top: 0.8rem;
+    min-height: 1.4em;
+  }
+  .pb-feedback.good { color: #2d7d46; }
+  .pb-feedback.bad { color: var(--blood); }
+  .pb-controls { display: flex; gap: 0.8rem; margin-top: 1rem; flex-wrap: wrap; }
+  .btn {
+    background: var(--shadow);
+    color: var(--parchment);
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .btn:hover { background: var(--blood); }
+  .btn.secondary {
+    background: white;
+    color: var(--shadow);
+    border: 1px solid var(--mist);
+  }
+  .btn.secondary:hover { background: var(--mist); }
+
+  /* PRACTICE QUESTIONS */
+  .pq-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.3rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--mist);
+  }
+  .pq-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .pq-label.warm { color: #4a9e6a; }
+  .pq-label.core { color: var(--gold); }
+  .pq-label.stretch { color: var(--blood); }
+  .pq-q {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--shadow);
+    line-height: 1.5;
+    margin-bottom: 0.6rem;
+  }
+  .pq-tip {
+    font-size: 0.78rem;
+    color: #777;
+    font-style: italic;
+  }
+  details { margin-top: 0.6rem; }
+  details summary {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  details summary::before { content: '▸ '; }
+  details[open] summary::before { content: '▾ '; }
+  details .hint-body {
+    background: rgba(92,45,110,0.06);
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #444;
+  }
+
+  /* FLASHCARDS */
+  .fc-grid { display: grid; gap: 1rem; }
+  @media(min-width: 560px) { .fc-grid { grid-template-columns: 1fr 1fr; } }
+  .fc {
+    perspective: 800px;
+    height: 160px;
+    cursor: pointer;
+  }
+  .fc-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+  }
+  .fc.flipped .fc-inner { transform: rotateY(180deg); }
+  .fc-front, .fc-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .fc-front {
+    background: var(--shadow);
+    color: var(--parchment);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .fc-back {
+    background: white;
+    border: 1px solid var(--mist);
+    transform: rotateY(180deg);
+  }
+  .fc-front .fc-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  .fc-front .fc-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  .fc-back .fc-back-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  .fc-back .fc-back-text {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: #333;
+  }
+  .fc-flip-hint {
+    font-size: 0.65rem;
+    color: rgba(245,240,232,0.4);
+    margin-top: 0.6rem;
+    font-style: italic;
+  }
+
+  /* ESSAY STRUCTURE */
+  .structure-step {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    align-items: start;
+  }
+  .step-num {
+    background: var(--shadow);
+    color: var(--gold);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+  .step-body { padding-top: 2px; }
+  .step-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--shadow);
+    margin-bottom: 0.3rem;
+  }
+  .step-desc {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #444;
+  }
+  .step-example {
+    margin-top: 0.5rem;
+    background: rgba(201,148,42,0.08);
+    border-left: 2px solid var(--gold);
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #555;
+    border-radius: 0 6px 6px 0;
+  }
+
+  /* ALERT BOXES */
+  .alert {
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    font-size: 0.83rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    display: flex;
+    gap: 0.8rem;
+  }
+  .alert-warn { background: rgba(139,26,26,0.08); border-left: 3px solid var(--blood); color: #5a1010; }
+  .alert-info { background: rgba(92,45,110,0.08); border-left: 3px solid var(--accent); color: #3a1a4a; }
+  .alert-good { background: rgba(45,125,70,0.08); border-left: 3px solid #2d7d46; color: #1a4a28; }
+  .alert-icon { font-size: 1.1rem; flex-shrink: 0; padding-top: 1px; }
+
+  /* QUIZ */
+  .quiz-q {
+    background: white;
+    border-radius: 10px;
+    padding: 1.3rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid var(--mist);
+  }
+  .quiz-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--shadow);
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+  }
+  .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+  .quiz-opt {
+    background: var(--pale);
+    border: 1.5px solid var(--mist);
+    border-radius: 6px;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.83rem;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .quiz-opt:hover:not(:disabled) { border-color: var(--gold); background: rgba(201,148,42,0.06); }
+  .quiz-opt.correct { background: rgba(45,125,70,0.1); border-color: #2d7d46; color: #1a4a28; font-weight: 600; }
+  .quiz-opt.wrong { background: rgba(139,26,26,0.08); border-color: var(--blood); color: #5a1010; }
+  .quiz-opt:disabled { cursor: default; }
+  .quiz-explanation {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 0.6rem;
+    line-height: 1.5;
+    display: none;
+    font-style: italic;
+    padding: 0.5rem 0.7rem;
+    background: rgba(0,0,0,0.03);
+    border-radius: 5px;
+  }
+  .quiz-score-bar {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid var(--mist);
+    margin-top: 1rem;
+    display: none;
+  }
+  .quiz-score-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--shadow);
+  }
+  .quiz-score-label { font-size: 0.85rem; color: #666; margin-top: 0.2rem; }
+
+  /* FOOTER */
+  footer {
+    background: var(--shadow);
+    color: rgba(245,240,232,0.5);
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 1.5rem;
+  }
+
+  /* CONTEXT CALLOUT */
+  .context-callout {
+    background: var(--shadow);
+    color: var(--parchment);
+    border-radius: 10px;
+    padding: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .context-callout .cc-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .context-callout p { font-size: 0.83rem; line-height: 1.6; color: rgba(245,240,232,0.85); }
+
+  /* CONTINUITY/CHANGE TABLE */
+  .cc-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; background: white; border-radius: 10px; overflow: hidden; border: 1px solid var(--mist); }
+  .cc-table th { background: var(--shadow); color: var(--gold); padding: 0.7rem 1rem; text-align: left; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  .cc-table td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--mist); vertical-align: top; line-height: 1.55; color: #333; }
+  .cc-table tr:last-child td { border-bottom: none; }
+  .cc-table tr:nth-child(even) td { background: var(--pale); }
+</style>
+</head>
+<body>
+
+<!-- SCHOOL BRAND BAR -->
+<div style="background:#1a1218; border-bottom:1px solid rgba(201,148,42,0.25); padding:0.65rem 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;">
+  <div style="display:flex; align-items:center; gap:0.9rem;">
+    <div style="width:2px; height:2rem; background:var(--gold);"></div>
+    <div>
+      <div style="font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:#f5f0e8; letter-spacing:0.02em;">Llanwern High School</div>
+      <div style="font-size:0.7rem; color:rgba(201,148,42,0.9); font-weight:600; letter-spacing:0.08em; text-transform:uppercase;">Newport, Wales</div>
+    </div>
+  </div>
+  <div style="text-align:right;">
+    <div style="font-size:0.75rem; color:rgba(245,240,232,0.6);">English Department</div>
+    <div style="font-size:0.8rem; font-weight:600; color:rgba(245,240,232,0.9);">Dr. Anderson's Class</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-eyebrow">WJEC GCSE English Language & Literature · Double Award · Unit 5</p>
+  <h1>Gender Roles in <em>Macbeth</em></h1>
+  <p class="hero-sub">Task A essay preparation — explore how attitudes to gender are presented and how they are different or the same for a modern audience.</p>
+  <div class="hero-meta">
+    <span class="pill">Year 10 Higher</span>
+    <span class="pill">Task A Essay</span>
+    <span class="pill">30 Marks</span>
+    <span class="pill">1000–1500 words</span>
+  </div>
+</header>
+
+<!-- NAV TABS -->
+<nav class="nav-tabs" id="mainNav">
+  <button class="tab-btn active" onclick="showTab('criteria')">📊 Mark Scheme</button>
+  <button class="tab-btn" onclick="showTab('structure')">🗂 Essay Structure</button>
+  <button class="tab-btn" onclick="showTab('quotes')">💬 Quotes Bank</button>
+  <button class="tab-btn" onclick="showTab('context')">🌍 Continuity & Change</button>
+  <button class="tab-btn" onclick="showTab('builder')">🧩 Paragraph Builder</button>
+  <button class="tab-btn" onclick="showTab('questions')">❓ Practice Questions</button>
+  <button class="tab-btn" onclick="showTab('quiz')">🎯 Quick Quiz</button>
+  <button class="tab-btn" onclick="showTab('flashcards')">🃏 Flashcards</button>
+</nav>
+
+<main>
+
+<!-- ===== MARK SCHEME TAB ===== -->
+<div class="tab-content active" id="tab-criteria">
+  <p class="section-title">What are you marked on?</p>
+  <p class="section-sub">Unit 5 Task A is marked out of 30 — 22 marks for AO1 and 8 marks for AO2.</p>
+
+  <div class="alert alert-info">
+    <span class="alert-icon">ℹ️</span>
+    <div>This is the <strong>new WJEC Made for Wales spec</strong> (teaching from 2025, first awarded 2027). The key difference from old specs: you must explore <strong>Continuity and Change</strong> — linking Shakespeare's presentation of gender to how a modern audience might see it differently or the same.</div>
+  </div>
+
+  <p class="card-title" style="margin-bottom:0.8rem; font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--shadow);">AO1 — 22 marks: Knowledge, Analysis & Argument</p>
+
+  <div class="band b5">
+    <div><div class="band-label">Band 5</div><div class="band-marks">18–22</div></div>
+    <div class="band-body">
+      <strong>Convincing and perceptive.</strong> Wide range of aspects considered. Sustained, critical engagement with reasoned personal judgements. Sophisticated evaluation of how points illustrate interpretations. Well-reasoned, persuasive exploration of language, structure and form. Comprehensive understanding of contexts — linking them to meaning. Strong, developing comparisons between Jacobean and modern attitudes.
+    </div>
+  </div>
+  <div class="band b4">
+    <div><div class="band-label">Band 4</div><div class="band-marks">14–17</div></div>
+    <div class="band-body">
+      <strong>Secure and detailed.</strong> Range of ideas critically engaged with. Competent selection of evidence with meaningful development. Clear comparisons and links. Secure explanations of language, structure and form. Secure understanding of contexts and their impact.
+    </div>
+  </div>
+  <div class="band b3">
+    <div><div class="band-label">Band 3</div><div class="band-marks">10–13</div></div>
+    <div class="band-body">
+      <strong>Some understanding, clear development.</strong> Main features addressed with some development. Broad range of points selected. Straightforward explanations of language. Some appropriate comparisons between time periods.
+    </div>
+  </div>
+  <div class="band b2">
+    <div><div class="band-label">Band 2</div><div class="band-marks">6–9</div></div>
+    <div class="band-body">
+      <strong>Basic understanding, descriptive.</strong> Undeveloped; tends to tell the story rather than analyse. Some basic evidence. Very limited comparison. Basic awareness of language effects.
+    </div>
+  </div>
+  <div class="band b1">
+    <div><div class="band-label">Band 1</div><div class="band-marks">1–5</div></div>
+    <div class="band-body">
+      <strong>Limited, brief.</strong> Few points without development. Limited or no comparison. Only simple comments on language.
+    </div>
+  </div>
+
+  <p class="card-title" style="margin: 1.5rem 0 0.8rem; font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--shadow);">AO2 — 8 marks: Quality of Written Communication</p>
+
+  <div class="band b5">
+    <div><div class="band-label">Band 4</div><div class="band-marks">7–8</div></div>
+    <div class="band-body">Consistently coherent, purposefully organised. Sophisticated linguistic and structural features. Wide range of punctuation used confidently. Spelling almost always correct, including complex words.</div>
+  </div>
+  <div class="band b4">
+    <div><div class="band-label">Band 3</div><div class="band-marks">5–6</div></div>
+    <div class="band-body">Mostly coherent, effectively organised. Range of punctuation accurate. Spelling secure.</div>
+  </div>
+  <div class="band b3">
+    <div><div class="band-label">Band 2</div><div class="band-marks">3–4</div></div>
+    <div class="band-body">Generally coherent. Frequent errors in punctuation and spelling but meaning is largely clear.</div>
+  </div>
+  <div class="band b2">
+    <div><div class="band-label">Band 1</div><div class="band-marks">1–2</div></div>
+    <div class="band-body">Occasional coherence. Errors may impede meaning.</div>
+  </div>
+
+  <div class="alert alert-warn" style="margin-top:1.5rem;">
+    <span class="alert-icon">⚠️</span>
+    <div><strong>Examiner watch-outs:</strong> Don't just list context facts — link them to the text and to a modern audience's response. Avoid retelling the plot. Every paragraph needs analysis of language (AO1). Check spelling of character names — errors are penalised in AO2.</div>
+  </div>
+</div>
+
+
+<!-- ===== ESSAY STRUCTURE TAB ===== -->
+<div class="tab-content" id="tab-structure">
+  <p class="section-title">Essay Structure</p>
+  <p class="section-sub">A suggested structure for a 1000–1500 word Task A essay on gender roles in Macbeth.</p>
+
+  <div class="alert alert-info">
+    <span class="alert-icon">💡</span>
+    <div>The Task A question is always framed around <strong>Continuity and Change</strong>: you must discuss how attitudes to gender are presented <em>and</em> how a modern audience might respond to them — the same or differently?</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Sample Task A Question (Gender)</div>
+    <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:1rem; line-height:1.5; color:var(--shadow);">Explore how attitudes to gender are presented in Macbeth and how these attitudes are different or the same for a modern audience.</p>
+  </div>
+
+  <div class="structure-step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-name">Introduction (approx. 100 words)</div>
+      <div class="step-desc">Introduce the play's central attitudes to gender. State your argument: were Jacobean gender roles more rigid than today? Acknowledge complexity — Lady Macbeth both conforms to and subverts expectations. Signal what your essay will cover.</div>
+      <div class="step-example">Shakespeare wrote Macbeth in 1606 for a Jacobean audience in which gender roles were strictly defined — men as warriors and rulers, women as passive and domestic. Yet Shakespeare complicates these expectations through characters like Lady Macbeth, creating a play that continues to challenge audiences today.</div>
+    </div>
+  </div>
+
+  <div class="structure-step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-name">Paragraph 1 — Lady Macbeth's subversion of gender</div>
+      <div class="step-desc">How does Shakespeare present Lady Macbeth challenging gender norms? Analyse specific language. Then compare: how might a modern audience view her differently to a Jacobean one?</div>
+      <div class="step-example">Focus on: "unsex me here" / "Come, you spirits" — the imperative verbs show her seeking to reject feminine qualities. A modern audience may admire her ambition; a Jacobean audience would likely be horrified by her defiance of God's natural order.</div>
+    </div>
+  </div>
+
+  <div class="structure-step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <div class="step-name">Paragraph 2 — Macbeth and masculine identity</div>
+      <div class="step-desc">How is Macbeth pressured by ideas of masculinity? Lady Macbeth and the witches both manipulate him through his gender identity. Continuity/Change: do modern audiences still recognise the pressure to "be a man"?</div>
+      <div class="step-example">Focus on: "When you durst do it, then you were a man" — Lady Macbeth weaponises masculine identity. Modern audiences may recognise this as toxic masculinity, a concept with continuity into the 21st century.</div>
+    </div>
+  </div>
+
+  <div class="structure-step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <div class="step-name">Paragraph 3 — The witches and gender transgression</div>
+      <div class="step-desc">The witches blur gender boundaries. Banquo says they "should be women, / And yet your beards forbid me to interpret / That you are so." How does Shakespeare use the witches to unsettle the gender binary?</div>
+      <div class="step-example">A Jacobean audience would associate bearded women with the supernatural and evil. A modern audience may be more comfortable with gender ambiguity, yet may still find the witches' power threatening — just for different reasons.</div>
+    </div>
+  </div>
+
+  <div class="structure-step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <div class="step-name">Paragraph 4 — Lady Macbeth's collapse and gender</div>
+      <div class="step-desc">By Act 5, Lady Macbeth is broken. Does Shakespeare punish her for stepping outside her gender role? Explore the sleepwalking scene and what it suggests about female ambition.</div>
+      <div class="step-example">Focus on: "Out, damned spot!" — the repetition reflects a fragmented mind. Is this Shakespeare suggesting women cannot sustain power? A modern audience might find this disappointing; a Jacobean audience may have felt order was restored.</div>
+    </div>
+  </div>
+
+  <div class="structure-step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <div class="step-name">Conclusion (approx. 100 words)</div>
+      <div class="step-desc">Bring your argument together. Make a clear judgement about continuity and change: which attitudes have changed most? Which remain surprisingly relevant? Avoid introducing new points.</div>
+      <div class="step-example">Overall, Shakespeare presents gender as both a social construction and a source of power and destruction. While a modern audience may reject Jacobean ideas of female passivity, the play's exploration of how gender is performed — and policed — remains strikingly relevant today.</div>
+    </div>
+  </div>
+
+  <div class="alert alert-good">
+    <span class="alert-icon">✅</span>
+    <div><strong>Remember during task-taking:</strong> You can have an unannotated copy of the play. No notes allowed. Plan your essay in your head using the structure above before you start writing.</div>
+  </div>
+</div>
+
+
+<!-- ===== QUOTES BANK TAB ===== -->
+<div class="tab-content" id="tab-quotes">
+  <p class="section-title">Key Quotes Bank</p>
+  <p class="section-sub">Tap any card to reveal the analysis. Learn the quote first — then check if your thinking matches.</p>
+
+  <div style="margin-bottom:1rem;">
+    <span class="qcard-tag">Lady Macbeth</span>
+    <span class="qcard-tag">Macbeth</span>
+    <span class="qcard-tag">Witches</span>
+    <span class="qcard-tag">Other</span>
+  </div>
+
+  <div class="quote-grid">
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Lady Macbeth · Act 1 Scene 5</div>
+      <div class="qcard-quote">"Come, you spirits / That tend on mortal thoughts, unsex me here"</div>
+      <div class="qcard-analysis">
+        The imperative <em>Come</em> and the invocation of spirits shows Lady Macbeth consciously rejecting her femininity. <em>Unsex me</em> is a radical demand — she sees femininity itself as a weakness standing between her and power. A Jacobean audience would view this as deeply unnatural and sinful; a modern audience may read it as a woman recognising that power is coded as masculine and trying to access it on those terms.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Lady Macbeth · Act 1 Scene 5</div>
+      <div class="qcard-quote">"Stop up the access and passage to remorse"</div>
+      <div class="qcard-analysis">
+        Lady Macbeth asks the spirits to block her capacity for guilt — she associates remorse with femininity and weakness. The anatomical metaphor of <em>access and passage</em> suggests she wants to physically alter herself. This shows that in Jacobean thinking, emotion and guilt were gendered as feminine; modern audiences may challenge this, seeing remorse as a human rather than gendered trait.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Lady Macbeth · Act 1 Scene 7</div>
+      <div class="qcard-quote">"When you durst do it, then you were a man"</div>
+      <div class="qcard-analysis">
+        Lady Macbeth weaponises Macbeth's masculine identity, equating courage with murder. The conditional <em>when</em> implies he has already failed to be a man. This reveals how rigidly masculinity was tied to action and violence in Jacobean culture. A modern audience may recognise this as toxic masculinity — the same social pressure on men to prove themselves through aggression still exists, showing surprising continuity.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Lady Macbeth · Act 1 Scene 7</div>
+      <div class="qcard-quote">"I have given suck, and know / How tender 'tis to love the babe that milks me"</div>
+      <div class="qcard-analysis">
+        Lady Macbeth uses the imagery of nursing a child to make her threat more shocking — she says she would kill her own baby to keep her promise. This references the Jacobean expectation that women's primary role was motherhood. The horrifying content of her speech shows how far she has inverted expected gender roles. Modern audiences may read this as a woman rejecting the reduction of female identity to motherhood.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Macbeth · Act 3 Scene 4</div>
+      <div class="qcard-quote">"What man dare, I dare"</div>
+      <div class="qcard-analysis">
+        Macbeth tries to reassert his masculine identity when confronted by Banquo's ghost. The repetition of <em>dare</em> shows his anxiety about appearing cowardly. Ironically, his inability to control his fear undermines the very masculinity he's trying to perform. A modern audience might interpret this as a man trapped in a performance of strength, showing continuity with 21st-century pressures around male stoicism.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Banquo · Act 1 Scene 3</div>
+      <div class="qcard-quote">"You should be women, / And yet your beards forbid me to interpret / That you are so"</div>
+      <div class="qcard-analysis">
+        Banquo's confusion about the witches' gender shows that their power comes partly from disrupting the gender binary. In Jacobean society, bearded women were associated with the Devil and the unnatural. Shakespeare uses the witches to destabilise gender as a stable category. A modern audience, more familiar with gender fluidity, may find the witches less shocking but no less intriguing as figures who exist outside social norms.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Macbeth · Act 1 Scene 7</div>
+      <div class="qcard-quote">"Bring forth men-children only"</div>
+      <div class="qcard-analysis">
+        Macbeth praises Lady Macbeth by saying her spirit should only produce male children. This reveals how deeply masculine ambition was valued — Macbeth can only praise her by turning her into something male. The backhanded compliment reinforces Jacobean gender hierarchy. A modern audience may find this deeply problematic, recognising it as Macbeth reducing Lady Macbeth even as he praises her.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Lady Macbeth · Act 5 Scene 1</div>
+      <div class="qcard-quote">"Out, damned spot! out, I say!"</div>
+      <div class="qcard-analysis">
+        By Act 5, Lady Macbeth's powerful ambition has collapsed into guilt and madness. The repetition and imperative <em>out</em> mirror her earlier commanding language, but now she commands her own conscience in vain. Some critics argue Shakespeare punishes Lady Macbeth for transgressing gender norms — restoring patriarchal order. A modern audience may find her breakdown psychologically realistic rather than morally just, feeling sympathy rather than satisfaction.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Malcolm · Act 4 Scene 3</div>
+      <div class="qcard-quote">"Dispute it like a man"</div>
+      <div class="qcard-analysis">
+        Malcolm tells Macduff to respond to the news of his family's murder "like a man." This reveals how even grief was gendered — men were expected to channel sorrow into action rather than emotion. Macduff's reply — "I must also feel it as a man" — subtly challenges this, suggesting humanity, not just warrior identity, is what makes a man. Modern audiences are likely more sympathetic to Macduff's emotional response.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Macduff · Act 4 Scene 3</div>
+      <div class="qcard-quote">"I must also feel it as a man"</div>
+      <div class="qcard-analysis">
+        Macduff's response to Malcolm challenges the Jacobean equation of masculinity with suppressed emotion. He insists that feeling grief is part of being a man, not a weakness. This is a moment of significant continuity — modern audiences may find Macduff's emotional honesty more sympathetic and modern than Malcolm's stoicism, and may see his line as ahead of its time.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Macduff · Act 5 Scene 8</div>
+      <div class="qcard-quote">"Macduff was from his mother's womb / Untimely ripped"</div>
+      <div class="qcard-analysis">
+        This is one of the most charged moments in the play for gender analysis. Macduff reveals he was delivered by what we would now call a caesarean section — he was literally cut from his mother's body rather than born naturally. This means he never truly passed through the female body in the conventional sense, and therefore technically fulfils the witches' prophecy that "none of woman born shall harm Macbeth."<br><br>
+        The implication is deeply unsettling: the only man capable of defeating Macbeth — a king who has been corrupted and destroyed by female influence (the witches, Lady Macbeth) — is a man who has been separated from the female body entirely. Shakespeare seems to suggest that to undo the damage done by women, you need a man who was barely touched by womanhood at all. A modern audience may find this logic troubling, even misogynistic — it implies that female influence is itself a kind of contamination. A Jacobean audience, however, may have read it as the restoration of a properly masculine, divinely ordained order.<br><br>
+        For Band 5, consider: does this reinforce or undermine the idea that Shakespeare is simply reflecting Jacobean gender norms? Or is he exposing the extremity — and fragility — of patriarchal logic?
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Witches · Act 1 Scene 1</div>
+      <div class="qcard-quote">"Fair is foul, and foul is fair"</div>
+      <div class="qcard-analysis">
+        The witches open the play by inverting moral and natural order. This choral line — spoken together, in unison — establishes them as a collective force outside normal categories. In gender terms, they represent everything that disrupts the natural hierarchy: they are female but bearded, powerful but marginalised, prophetic but demonic. Their inversion of "fair" and "foul" mirrors the inversion of gender norms that drives the whole play. A Jacobean audience would immediately associate this chaos with the danger of female power unchecked. A modern audience might instead read the witches as figures who reveal that "natural" order is itself a construction — something imposed, not given.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Lady Macbeth · Act 1 Scene 5</div>
+      <div class="qcard-quote">"Come to my woman's breasts / And take my milk for gall"</div>
+      <div class="qcard-analysis">
+        Lady Macbeth invites the spirits to replace her breast milk — the ultimate symbol of maternal femininity and nurture — with gall (bitter poison). This is a violent rejection of the body's most gendered function. In Jacobean society, breastfeeding was seen as a sacred female duty; to ask for it to be corrupted is to reject womanhood at its most fundamental. The physical imagery makes her transgression visceral and shocking. A modern audience might read this as a woman violently refusing to be reduced to her reproductive role — but Shakespeare frames it as an act of self-corruption that ultimately destroys her.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Macbeth · Act 3 Scene 4</div>
+      <div class="qcard-quote">"What man dare, I dare... / The armed rhinoceros, or the Hyrcan tiger"</div>
+      <div class="qcard-analysis">
+        Confronted by Banquo's ghost, Macbeth desperately tries to reassert his masculine identity through a list of dangerous animals he would fearlessly face. The hyperbolic imagery — rhinoceros, tiger — reveals the performative nature of his masculinity. He is not genuinely courageous; he is performing courage because the ghost has unmanned him in front of his court. The irony is sharp: a man who murdered his king and his friend in cold blood cannot face a ghost. Shakespeare suggests that the kind of violent, performative masculinity Macbeth has pursued is hollow — it does not produce real strength. A modern audience might read this as a deconstruction of toxic masculinity.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+    <div class="qcard" onclick="this.classList.toggle('open')">
+      <div class="qcard-character">Lady Macbeth · Act 2 Scene 2</div>
+      <div class="qcard-quote">"My hands are of your colour; but I shame / To wear a heart so white"</div>
+      <div class="qcard-analysis">
+        After the murder of Duncan, Lady Macbeth scorns Macbeth's guilt, calling his pale ("white") heart shameful — cowardly. White here is associated with femininity and weakness; red (blood, action) with masculinity. She is again using gender as a weapon, shaming him for emotional responses she codes as female. Yet the dramatic irony is devastating: by Act 5, it is Lady Macbeth herself who cannot escape the blood she now sees on her hands. The colour symbolism comes full circle — her attempts to suppress feminine guilt ultimately destroy her. A modern audience might find this one of the play's most powerful ironies.
+      </div>
+      <div class="qcard-hint">Tap to reveal analysis →</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ===== CONTINUITY & CHANGE TAB ===== -->
+<div class="tab-content" id="tab-context">
+  <p class="section-title">Continuity &amp; Change</p>
+  <p class="section-sub">The heart of this unit. You must compare Jacobean attitudes with how a modern audience might respond.</p>
+
+  <div class="alert alert-warn">
+    <span class="alert-icon">⚠️</span>
+    <div>Context should <strong>inform your analysis</strong> — not replace it. Don't write long paragraphs about Jacobean society without linking back to Shakespeare's language and a modern perspective. The mark scheme rewards context that shapes meaning.</div>
+  </div>
+
+  <div class="context-callout">
+    <div class="cc-label">Key Jacobean Context — Gender</div>
+    <p>In 1606, gender roles were understood as divinely ordained. Men were expected to be rational, active and dominant; women passive, domestic and obedient. A woman who sought power was seen as unnatural and linked to witchcraft. The "Great Chain of Being" placed men above women as part of God's natural order. Lady Macbeth's behaviour would have been deeply unsettling to a Jacobean audience.</p>
+  </div>
+
+  <div class="card" style="border-left: 3px solid var(--gold); background: rgba(201,148,42,0.06);">
+    <div class="card-title" style="color:var(--blood); display:flex; align-items:center; gap:0.5rem;">
+      <span>⚡</span> Don't oversimplify — this context is more complicated
+    </div>
+    <p style="font-size:0.88rem; line-height:1.7; color:#333; margin-bottom:0.8rem;">
+      It would be too simple to say "Jacobeans would never accept female power." In fact, England had just lived through <strong>45 years of Queen Elizabeth I's reign</strong> (1558–1603) — a woman who wielded enormous political authority and was celebrated for it. Jacobean audiences in 1606 had real, recent experience of powerful female rule.
+    </p>
+    <p style="font-size:0.88rem; line-height:1.7; color:#333; margin-bottom:0.8rem;">
+      So why does <em>Macbeth</em> present female power so negatively? Shakespeare was writing for <strong>King James I</strong>, who came to the throne in 1603. James was deeply anxious to assert his own legitimacy as a male monarch — partly <em>because</em> of Elizabeth's reign. He was also famously obsessed with witchcraft, having written his own book on the subject (<em>Daemonologie</em>, 1597). Shakespeare's negative portrayal of powerful women — Lady Macbeth, the witches — can be read as a deliberate piece of <strong>political flattery</strong>, affirming James's belief that male kingship was the natural and God-given order.
+    </p>
+    <p style="font-size:0.88rem; line-height:1.7; color:#333;">
+      This means a <strong>Band 5 response</strong> won't just say "Jacobeans feared female power." It will acknowledge that attitudes were <em>contested and politicised</em> — that Shakespeare was making a specific political argument for a specific king, not simply reflecting universal Jacobean belief. Some audience members may even have found Lady Macbeth's intelligence and ambition <em>compelling</em>, not just horrifying.
+    </p>
+    <div style="margin-top:1rem; padding:0.8rem 1rem; background:rgba(139,26,26,0.07); border-radius:6px;">
+      <p style="font-size:0.82rem; font-weight:600; color:var(--shadow); margin-bottom:0.3rem;">Use this in your essay like this:</p>
+      <p style="font-size:0.82rem; font-style:italic; color:#444; line-height:1.6;">"While it might seem that a Jacobean audience would straightforwardly reject Lady Macbeth's ambition, the reality is more complex. Having lived through Elizabeth I's reign, many audience members had direct experience of powerful female rule. Shakespeare's negative portrayal of female power may be less a reflection of universal Jacobean attitudes and more a calculated act of political flattery towards James I, who wrote extensively about the dangers of witchcraft and the divine right of male kings."</p>
+    </div>
+  </div>
+
+  <p style="font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--shadow); margin:1.2rem 0 0.6rem;">Continuity and Change — Side by Side</p>
+
+  <table class="cc-table">
+    <thead>
+      <tr>
+        <th>Attitude / Idea</th>
+        <th>Jacobean Audience (1606)</th>
+        <th>Modern Audience (Today)</th>
+        <th>Change or Continuity?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Female ambition</strong></td>
+        <td>Complex — after Elizabeth I's reign, many had lived under powerful female rule. Shakespeare's negative portrayal was partly political flattery for James I, not simply universal Jacobean belief. Some may have found Lady Macbeth compelling as well as troubling.</td>
+        <td>Admired or at least accepted; Lady Macbeth may be seen as a proto-feminist</td>
+        <td>🔄 Change — but Jacobean attitude was already contested</td>
+      </tr>
+      <tr>
+        <td><strong>Men must be violent/brave</strong></td>
+        <td>Masculinity was proved through war and decisive action</td>
+        <td>Toxic masculinity is recognised; pressure on men to suppress emotion still exists</td>
+        <td>⟳ Partial continuity</td>
+      </tr>
+      <tr>
+        <td><strong>Women's emotions = weakness</strong></td>
+        <td>Remorse, compassion seen as feminine flaws to be suppressed</td>
+        <td>Emotional intelligence valued; Macduff's grief seen as strength</td>
+        <td>🔄 Significant change</td>
+      </tr>
+      <tr>
+        <td><strong>Gender as fixed and binary</strong></td>
+        <td>Bearded witches cause horror — they violate natural order</td>
+        <td>Modern audiences more accepting of gender fluidity; witches may seem less transgressive</td>
+        <td>🔄 Change in some contexts</td>
+      </tr>
+      <tr>
+        <td><strong>Women as mothers above all</strong></td>
+        <td>A woman's primary role was motherhood; childlessness was shameful</td>
+        <td>Women defined by more than motherhood; Lady Macbeth's rejection of it is understandable</td>
+        <td>🔄 Significant change</td>
+      </tr>
+      <tr>
+        <td><strong>Power belongs to men</strong></td>
+        <td>Kingship and authority were inherently masculine; female power was illegitimate</td>
+        <td>Gender equality in leadership widely accepted, though gender gaps in power persist</td>
+        <td>⟳ Change with some continuity</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--shadow); margin:1.5rem 0 0.6rem;">Useful Connective Phrases for Continuity &amp; Change</p>
+  <div class="card">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; font-size:0.83rem; color:#333; line-height:1.7;">
+      <div>
+        <strong style="color:var(--blood);">Showing change:</strong><br>
+        "A modern audience may find it difficult to accept..."<br>
+        "Unlike a Jacobean audience, today's reader might..."<br>
+        "Attitudes have shifted significantly since 1606..."<br>
+        "What Shakespeare's original audience feared, a modern audience might admire..."
+      </div>
+      <div>
+        <strong style="color:#2d7d46;">Showing continuity:</strong><br>
+        "This tension remains recognisable today..."<br>
+        "Surprisingly, modern audiences may still..."<br>
+        "The pressure to conform to gender expectations has not entirely disappeared..."<br>
+        "There is a striking continuity here — in 2024, men are still..."
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== PARAGRAPH BUILDER TAB ===== -->
+<div class="tab-content" id="tab-builder">
+  <p class="section-title">Paragraph Builder</p>
+  <p class="section-sub">Build a high-quality paragraph by clicking the pieces in the right order. Think before you tap — don't guess!</p>
+
+  <div class="pb-instruction">
+    <strong>How to use this:</strong> Below is a deconstructed paragraph about Lady Macbeth's language in Act 1 Scene 5. The paragraph has been split into pieces. Click them in the order you think makes the strongest argument: <strong>Point → Evidence → Analysis → Continuity/Change link</strong>. Try to predict the correct order before you click anything.
+  </div>
+
+  <div id="pb-slots">
+    <div class="pb-slot" id="slot-0">
+      <div class="pb-slot-label">Step 1 — Point (your argument)</div>
+      <p id="slot-0-text">Click a piece below to place it here</p>
+    </div>
+    <div class="pb-slot" id="slot-1">
+      <div class="pb-slot-label">Step 2 — Evidence (quotation)</div>
+      <p id="slot-1-text">Click a piece below to place it here</p>
+    </div>
+    <div class="pb-slot" id="slot-2">
+      <div class="pb-slot-label">Step 3 — Analysis (how language creates meaning)</div>
+      <p id="slot-2-text">Click a piece below to place it here</p>
+    </div>
+    <div class="pb-slot" id="slot-3">
+      <div class="pb-slot-label">Step 4 — Continuity / Change (modern audience link)</div>
+      <p id="slot-3-text">Click a piece below to place it here</p>
+    </div>
+  </div>
+
+  <div class="pb-pieces" id="pb-pieces">
+    <div class="pb-piece" data-id="0" onclick="pbClick(this)">Shakespeare presents Lady Macbeth as deliberately rejecting the femininity expected of her by Jacobean society.</div>
+    <div class="pb-piece" data-id="2" onclick="pbClick(this)">The imperative verb "unsex" suggests Lady Macbeth sees her gender itself as an obstacle to power — she must literally become something other than a woman to achieve her ambitions.</div>
+    <div class="pb-piece" data-id="1" onclick="pbClick(this)">In Act 1 Scene 5, she commands the spirits to "unsex me here", invoking the supernatural to strip away her femininity.</div>
+    <div class="pb-piece" data-id="3" onclick="pbClick(this)">A Jacobean audience would have found this deeply disturbing — seeking to alter the God-given natural order. Yet a modern audience might instead read Lady Macbeth's words as a devastating critique of a society that denies women access to power without first becoming "male".</div>
+  </div>
+
+  <div class="pb-feedback" id="pb-feedback"></div>
+
+  <div class="pb-controls">
+    <button class="btn secondary" onclick="pbReset()">↺ Reset</button>
+    <button class="btn" onclick="pbReveal()">✓ Show Full Paragraph</button>
+  </div>
+
+  <div class="card" id="pb-full" style="display:none; margin-top:1.2rem; border-left:3px solid var(--accent);">
+    <div class="card-title" style="color:var(--accent); font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase;">Complete Paragraph</div>
+    <p style="font-size:0.88rem; line-height:1.7; color:#333;">
+      Shakespeare presents Lady Macbeth as deliberately rejecting the femininity expected of her by Jacobean society. In Act 1 Scene 5, she commands the spirits to "unsex me here", invoking the supernatural to strip away her femininity. The imperative verb "unsex" suggests Lady Macbeth sees her gender itself as an obstacle to power — she must literally become something other than a woman to achieve her ambitions. A Jacobean audience would have found this deeply disturbing — seeking to alter the God-given natural order. Yet a modern audience might instead read Lady Macbeth's words as a devastating critique of a society that denies women access to power without first becoming "male".
+    </p>
+    <p style="font-size:0.78rem; color:#888; margin-top:0.8rem; font-style:italic;">Notice: Point → Evidence → Language Analysis → Continuity/Change. This is the pattern to use throughout your essay.</p>
+  </div>
+
+  <!-- Second builder -->
+  <hr style="border:none; border-top:1px solid var(--mist); margin:2rem 0;">
+  <p style="font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:var(--shadow); margin-bottom:0.5rem;">Try Another — Masculinity</p>
+  <p style="font-size:0.83rem; color:#666; margin-bottom:1rem;">Same structure. Different paragraph. Click the pieces in the correct order.</p>
+
+  <div id="pb2-slots">
+    <div class="pb-slot" id="pb2-slot-0"><div class="pb-slot-label">Step 1 — Point</div><p id="pb2-slot-0-text">Click a piece below</p></div>
+    <div class="pb-slot" id="pb2-slot-1"><div class="pb-slot-label">Step 2 — Evidence</div><p id="pb2-slot-1-text">Click a piece below</p></div>
+    <div class="pb-slot" id="pb2-slot-2"><div class="pb-slot-label">Step 3 — Analysis</div><p id="pb2-slot-2-text">Click a piece below</p></div>
+    <div class="pb-slot" id="pb2-slot-3"><div class="pb-slot-label">Step 4 — Continuity / Change</div><p id="pb2-slot-3-text">Click a piece below</p></div>
+  </div>
+
+  <div class="pb-pieces" id="pb2-pieces">
+    <div class="pb-piece" data-id="2" onclick="pb2Click(this)">The conditional structure of "when you durst do it" implies that killing Duncan was not merely ambition but a test of manhood — and one Macbeth has already failed by hesitating. Lady Macbeth weaponises his masculine identity against his conscience.</div>
+    <div class="pb-piece" data-id="0" onclick="pb2Click(this)">Shakespeare uses Lady Macbeth to reveal how masculine identity in Jacobean society was weaponised — used to shame men into violence.</div>
+    <div class="pb-piece" data-id="3" onclick="pb2Click(this)">A modern audience is likely to recognise this as an example of toxic masculinity — the same cultural script that tells men they must suppress doubt, emotion and ethics to prove their strength. Far from feeling dated, this exchange has striking continuity with 21st-century expectations of men.</div>
+    <div class="pb-piece" data-id="1" onclick="pb2Click(this)">In Act 1 Scene 7, she taunts him: "When you durst do it, then you were a man."</div>
+  </div>
+
+  <div class="pb-feedback" id="pb2-feedback"></div>
+  <div class="pb-controls">
+    <button class="btn secondary" onclick="pb2Reset()">↺ Reset</button>
+    <button class="btn" onclick="pb2Reveal()">✓ Show Full Paragraph</button>
+  </div>
+
+  <div class="card" id="pb2-full" style="display:none; margin-top:1.2rem; border-left:3px solid var(--accent);">
+    <div class="card-title" style="color:var(--accent); font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase;">Complete Paragraph</div>
+    <p style="font-size:0.88rem; line-height:1.7; color:#333;">
+      Shakespeare uses Lady Macbeth to reveal how masculine identity in Jacobean society was weaponised — used to shame men into violence. In Act 1 Scene 7, she taunts him: "When you durst do it, then you were a man." The conditional structure of "when you durst do it" implies that killing Duncan was not merely ambition but a test of manhood — and one Macbeth has already failed by hesitating. Lady Macbeth weaponises his masculine identity against his conscience. A modern audience is likely to recognise this as an example of toxic masculinity — the same cultural script that tells men they must suppress doubt, emotion and ethics to prove their strength. Far from feeling dated, this exchange has striking continuity with 21st-century expectations of men.
+    </p>
+  </div>
+</div>
+
+
+<!-- ===== PRACTICE QUESTIONS TAB ===== -->
+<div class="tab-content" id="tab-questions">
+  <p class="section-title">Practice Questions</p>
+  <p class="section-sub">From warm-up to full essay. Work through these in order — or dip into whatever you need.</p>
+
+  <p style="font-family:'Playfair Display',serif; font-weight:700; color:var(--shadow); margin-bottom:0.8rem;">🔥 Warm-Up — Quick thinking tasks</p>
+
+  <div class="pq-card">
+    <div class="pq-label warm">Warm-Up</div>
+    <div class="pq-q">Without looking at your notes: what does Lady Macbeth mean by "unsex me here"? Write two sentences.</div>
+    <details><summary>Thinking prompt</summary><div class="hint-body">Think about what "unsex" literally means. Why would removing her femininity give her power? What does this reveal about gender in the play?</div></details>
+  </div>
+
+  <div class="pq-card">
+    <div class="pq-label warm">Warm-Up</div>
+    <div class="pq-q">Give two examples of moments where Macbeth is shamed into action through his masculine identity. Write one sentence per example.</div>
+    <details><summary>Thinking prompt</summary><div class="hint-body">Think about Act 1 Scene 7 (Lady Macbeth's manipulation) and Act 3 Scene 4 (the ghost scene). What does Macbeth do or say to try to prove his manhood?</div></details>
+  </div>
+
+  <div class="pq-card">
+    <div class="pq-label warm">Warm-Up</div>
+    <div class="pq-q">In the sleepwalking scene, how does Lady Macbeth's language change compared to Act 1? What does this tell us about gender and power in the play?</div>
+    <details><summary>Thinking prompt</summary><div class="hint-body">In Act 1 she uses imperatives and commands. In Act 5 she is fragmented, repetitive. What does Shakespeare suggest happens to women who seize power?</div></details>
+  </div>
+
+  <p style="font-family:'Playfair Display',serif; font-weight:700; color:var(--shadow); margin: 1.5rem 0 0.8rem;">🎯 Core — Paragraph-length responses</p>
+
+  <div class="pq-card">
+    <div class="pq-label core">Core Task</div>
+    <div class="pq-q">Write one full paragraph (approx. 150 words) exploring how Shakespeare presents Lady Macbeth challenging Jacobean gender expectations. Include: a point, a quotation, language analysis, and a link to a modern audience.</div>
+    <details><summary>Structure reminder</summary><div class="hint-body">Point → Evidence (quote) → Analysis (language technique + meaning) → Continuity/Change (how a modern audience might respond differently to a Jacobean one). Try to use one specific literary or linguistic term.</div></details>
+  </div>
+
+  <div class="pq-card">
+    <div class="pq-label core">Core Task</div>
+    <div class="pq-q">How does Shakespeare use the witches to challenge the gender binary? Write a paragraph that analyses their language or appearance and includes a continuity/change comparison.</div>
+    <details><summary>Key focus</summary><div class="hint-body">Focus on Banquo's description of the witches in Act 1 Scene 3. Consider: what did gender ambiguity mean for a Jacobean audience? What does it mean for a modern one? Has the response to non-binary gender changed?</div></details>
+  </div>
+
+  <div class="pq-card">
+    <div class="pq-label core">Core Task</div>
+    <div class="pq-q">Compare how Malcolm and Macduff define masculinity in Act 4 Scene 3. What might a modern audience make of this exchange?</div>
+    <details><summary>Key quotes to use</summary><div class="hint-body">"Dispute it like a man" (Malcolm) vs "I must also feel it as a man" (Macduff). Which character offers a more modern model of masculinity? Which attitude has more continuity with today?</div></details>
+  </div>
+
+  <p style="font-family:'Playfair Display',serif; font-weight:700; color:var(--shadow); margin: 1.5rem 0 0.8rem;">🚀 Stretch — Full essay planning</p>
+
+  <div class="pq-card">
+    <div class="pq-label stretch">Stretch — Full Essay Plan</div>
+    <div class="pq-q">Plan a full 1000-word essay in response to: "Explore how attitudes to gender are presented in Macbeth and how these attitudes are different or the same for a modern audience."</div>
+    <p class="pq-tip">Write a bullet-point plan for each paragraph. For each one, note: your point, your chosen quotation, your language focus, and your Continuity/Change link. You have 3 hours in the real assessment — use this task to practise planning quickly.</p>
+    <details><summary>Paragraph outline prompt</summary><div class="hint-body">
+      <strong>Suggested 5-paragraph plan:</strong><br>
+      1. Intro — Jacobean gender norms; thesis statement<br>
+      2. Lady Macbeth's rejection of femininity (Act 1 Scene 5)<br>
+      3. Masculinity as a weapon (Act 1 Scene 7 / Act 3 Scene 4)<br>
+      4. The witches and gender transgression (Act 1 Scene 3)<br>
+      5. Lady Macbeth's collapse — punishment or psychology? (Act 5 Scene 1)<br>
+      Conclusion — which attitudes have changed? Which continue?
+    </div></details>
+  </div>
+
+  <div class="pq-card">
+    <div class="pq-label stretch">Stretch — Evaluation</div>
+    <div class="pq-q">A student argues: "Shakespeare ultimately punishes Lady Macbeth for breaking gender rules, showing that the play reinforces rather than challenges Jacobean patriarchy." How far do you agree? Write a balanced paragraph presenting both sides.</div>
+    <details><summary>Things to consider</summary><div class="hint-body">Evidence FOR: Lady Macbeth goes mad and dies; order is restored by male figures at the end. Evidence AGAINST: Shakespeare gives her tremendous power and intelligence; her language is the most compelling in the play; modern audiences may see her breakdown as tragic rather than deserved. What do YOU think Shakespeare intends?</div></details>
+  </div>
+</div>
+
+
+<!-- ===== QUICK QUIZ TAB ===== -->
+<div class="tab-content" id="tab-quiz">
+  <p class="section-title">Quick Quiz</p>
+  <p class="section-sub">Test your knowledge of the play, the quotes, and the mark scheme. 8 questions — see how many you get.</p>
+
+  <div id="quiz-container">
+
+    <div class="quiz-q" id="qq-0">
+      <div class="quiz-text">1. What does Lady Macbeth mean when she says "unsex me here"?</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="answerQ(0, this, false, 'She is asking for a disguise to fool Duncan.')">She is asking for a disguise to fool Duncan.</button>
+        <button class="quiz-opt" onclick="answerQ(0, this, true, 'She wants the spirits to strip away her femininity so she can act without the compassion associated with women.')">She wants the spirits to strip away her femininity so she can act without the compassion associated with women.</button>
+        <button class="quiz-opt" onclick="answerQ(0, this, false, 'She is describing her attraction to power rather than love.')">She is describing her attraction to power rather than love.</button>
+      </div>
+      <div class="quiz-explanation" id="qe-0"></div>
+    </div>
+
+    <div class="quiz-q" id="qq-1">
+      <div class="quiz-text">2. In the WJEC Unit 5 Task A mark scheme, how many marks are available in total?</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="answerQ(1, this, false, '40 marks — that\'s for a different task.')">40 marks</button>
+        <button class="quiz-opt" onclick="answerQ(1, this, true, 'Correct! 30 marks in total: 22 for AO1 and 8 for AO2.')">30 marks</button>
+        <button class="quiz-opt" onclick="answerQ(1, this, false, '60 marks — that\'s the total for the whole unit (both Task A and Task B combined).')">60 marks</button>
+      </div>
+      <div class="quiz-explanation" id="qe-1"></div>
+    </div>
+
+    <div class="quiz-q" id="qq-2">
+      <div class="quiz-text">3. What is the central concept for Unit 5 Task A that must run through your essay?</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="answerQ(2, this, false, 'Tragedy and fate is a theme in Macbeth but it\'s not the Unit 5 concept.')">Tragedy and fate</button>
+        <button class="quiz-opt" onclick="answerQ(2, this, true, 'Correct! Every Task A essay must explore Continuity and Change — linking the play to a modern audience.')">Continuity and Change</button>
+        <button class="quiz-opt" onclick="answerQ(2, this, false, 'Power and ambition is a theme but not the specific unit concept.')">Power and ambition</button>
+      </div>
+      <div class="quiz-explanation" id="qe-2"></div>
+    </div>
+
+    <div class="quiz-q" id="qq-3">
+      <div class="quiz-text">4. Which quote does Lady Macbeth use to shame Macbeth into murdering Duncan by questioning his masculinity?</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="answerQ(3, this, false, 'Close — but this is Macbeth reasserting his bravery against Banquo\'s ghost (Act 3 Scene 4).')">What man dare, I dare</button>
+        <button class="quiz-opt" onclick="answerQ(3, this, true, 'Correct! Act 1 Scene 7 — Lady Macbeth weaponises his identity as a man to override his moral hesitation.')">When you durst do it, then you were a man</button>
+        <button class="quiz-opt" onclick="answerQ(3, this, false, 'This is Macbeth praising Lady Macbeth\'s spirit — not her shaming him.')">Bring forth men-children only</button>
+      </div>
+      <div class="quiz-explanation" id="qe-3"></div>
+    </div>
+
+    <div class="quiz-q" id="qq-4">
+      <div class="quiz-text">5. What does Banquo say about the witches that reveals Jacobean anxieties about gender?</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="answerQ(4, this, true, 'Correct! Their beards destabilise gender — they look like women but have masculine features, causing Banquo genuine confusion and unease.')">You should be women, / And yet your beards forbid me to interpret / That you are so</button>
+        <button class="quiz-opt" onclick="answerQ(4, this, false, 'This is Macbeth upon first meeting the witches — it\'s about their prophecies, not gender.')">So foul and fair a day I have not seen</button>
+        <button class="quiz-opt" onclick="answerQ(4, this, false, 'This is Malcolm speaking about kingship, not about the witches.')">What bloody man is that?</button>
+      </div>
+      <div class="quiz-explanation" id="qe-4"></div>
+    </div>
+
+    <div class="quiz-q" id="qq-5">
+      <div class="quiz-text">6. Which of the following is a Band 5 (highest) AO1 skill in the Task A mark scheme?</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="answerQ(5, this, false, 'This is a Band 2 approach — retelling the story without analysing language.')">Retelling what happens in the play in detail</button>
+        <button class="quiz-opt" onclick="answerQ(5, this, false, 'Writing about context only would get credit in AO1 but won\'t reach Band 5 without linking to language and meaning.')">Giving lots of information about Jacobean society</button>
+        <button class="quiz-opt" onclick="answerQ(5, this, true, 'Correct! Band 5 requires a sophisticated, perceptive argument that links language analysis to meaning and makes well-reasoned comparisons between time periods.')">A convincing, perceptive argument with sustained analysis of language, structure and form, and well-reasoned comparisons between Jacobean and modern attitudes</button>
+      </div>
+      <div class="quiz-explanation" id="qe-5"></div>
+    </div>
+
+    <div class="quiz-q" id="qq-6">
+      <div class="quiz-text">7. Are you allowed to use notes during the Task A essay writing stage?</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="answerQ(6, this, false, 'No — this would be malpractice. Notes must be handed in before the writing stage begins.')">Yes, you can use your planning notes</button>
+        <button class="quiz-opt" onclick="answerQ(6, this, true, 'Correct! No notes during writing. You can have an unannotated copy of the play, but that\'s all.')">No — no notes are allowed, but you can have an unannotated copy of the play</button>
+        <button class="quiz-opt" onclick="answerQ(6, this, false, 'Annotated copies are NOT allowed — only unannotated.')">Yes, you can use an annotated copy of the play</button>
+      </div>
+      <div class="quiz-explanation" id="qe-6"></div>
+    </div>
+
+    <div class="quiz-q" id="qq-7">
+      <div class="quiz-text">8. How does Macduff challenge the Jacobean model of masculinity in Act 4 Scene 3?</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="answerQ(7, this, false, 'Macduff does fight Macbeth, but that\'s in Act 5. The key Act 4 moment is about grief, not warfare.')">By refusing to fight Macbeth</button>
+        <button class="quiz-opt" onclick="answerQ(7, this, false, 'Malcolm says this — Macduff responds differently and more subtly.')">By saying "Dispute it like a man"</button>
+        <button class="quiz-opt" onclick="answerQ(7, this, true, 'Correct! "I must also feel it as a man" — Macduff insists that grief and feeling are not un-masculine, subtly challenging Jacobean stoicism.')">By saying "I must also feel it as a man" — insisting that emotion is part of being a man, not a weakness</button>
+      </div>
+      <div class="quiz-explanation" id="qe-7"></div>
+    </div>
+
+  </div>
+
+  <div class="quiz-score-bar" id="quiz-score">
+    <div class="quiz-score-num" id="quiz-score-num">0/8</div>
+    <div class="quiz-score-label" id="quiz-score-label">Quiz complete!</div>
+    <button class="btn secondary" style="margin-top:1rem;" onclick="resetQuiz()">↺ Try Again</button>
+  </div>
+</div>
+
+
+<!-- ===== FLASHCARDS TAB ===== -->
+<div class="tab-content" id="tab-flashcards">
+  <p class="section-title">Flashcards</p>
+  <p class="section-sub">Tap a card to flip it. Front: quote or concept. Back: what you need to know.</p>
+
+  <div class="fc-grid">
+
+    <div class="fc" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div class="fc-label">Quote — Lady Macbeth</div>
+          <div class="fc-text">"Come, you spirits / That tend on mortal thoughts, unsex me here"</div>
+          <div class="fc-flip-hint">Tap to flip</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-back-label">What to say about it</div>
+          <div class="fc-back-text">Imperative "Come" = she commands supernatural forces. "Unsex me" = rejects femininity as weakness. Jacobean: sinful / unnatural. Modern: critique of a society that codes power as masculine.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div class="fc-label">Quote — Lady Macbeth</div>
+          <div class="fc-text">"When you durst do it, then you were a man"</div>
+          <div class="fc-flip-hint">Tap to flip</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-back-label">What to say about it</div>
+          <div class="fc-back-text">Conditional "when" = Macbeth already failed the test. Lady Macbeth weaponises masculinity. Jacobean: men prove worth through violence. Modern: recognised as toxic masculinity — still relevant today. Strong continuity.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div class="fc-label">Quote — Banquo</div>
+          <div class="fc-text">"You should be women, / And yet your beards forbid me to interpret / That you are so"</div>
+          <div class="fc-flip-hint">Tap to flip</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-back-label">What to say about it</div>
+          <div class="fc-back-text">The witches destabilise the gender binary. Jacobean: bearded women = unnatural, linked to Devil. Modern: gender ambiguity more accepted, but witches' power still unsettling. Change in how we view gender non-conformity.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div class="fc-label">Quote — Lady Macbeth</div>
+          <div class="fc-text">"Out, damned spot! out, I say!"</div>
+          <div class="fc-flip-hint">Tap to flip</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-back-label">What to say about it</div>
+          <div class="fc-back-text">Repetition + fragmented syntax = collapse of her earlier power. Commands herself in vain. Jacobean: natural order restored after female transgression. Modern: read as psychological breakdown — sympathy, not satisfaction. Significant change in audience response.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div class="fc-label">Quote — Macduff</div>
+          <div class="fc-text">"I must also feel it as a man"</div>
+          <div class="fc-flip-hint">Tap to flip</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-back-label">What to say about it</div>
+          <div class="fc-back-text">Challenges Malcolm's "Dispute it like a man." Macduff = emotion is part of masculinity. Jacobean: grief seen as feminine weakness. Modern: emotional intelligence valued. Macduff offers a surprisingly modern model of manhood — significant change in audience sympathy.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div class="fc-label">Key Context</div>
+          <div class="fc-text">What was the "Great Chain of Being"?</div>
+          <div class="fc-flip-hint">Tap to flip</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-back-label">Answer</div>
+          <div class="fc-back-text">The Jacobean belief that God had ordered all living things in a fixed hierarchy: God → King → Man → Woman → animals. Disrupting this order (e.g. a woman seeking power) was seen as unnatural and sinful. Lady Macbeth's ambition directly defies it.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div class="fc-label">Mark Scheme</div>
+          <div class="fc-text">What two Assessment Objectives are tested in Task A?</div>
+          <div class="fc-flip-hint">Tap to flip</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-back-label">Answer</div>
+          <div class="fc-back-text">AO1 (22 marks): knowledge, analysis, use of linguistic/literary approaches, context, argument, comparisons. AO2 (8 marks): quality of written communication — accuracy of grammar, punctuation, spelling, vocabulary and sentence structure.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div class="fc-label">Unit 5 Concept</div>
+          <div class="fc-text">What does "Continuity and Change" mean for your essay?</div>
+          <div class="fc-flip-hint">Tap to flip</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-back-label">Answer</div>
+          <div class="fc-back-text">You must explore how attitudes to gender are presented in Macbeth AND compare them to how a modern audience might respond. Some attitudes will have changed (e.g. female ambition now admired). Some continue (e.g. toxic masculinity still exists). You need BOTH in your essay.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div class="fc-label">Quote — Macbeth</div>
+          <div class="fc-text">"Bring forth men-children only"</div>
+          <div class="fc-flip-hint">Tap to flip</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-back-label">What to say about it</div>
+          <div class="fc-back-text">Macbeth praises Lady Macbeth by saying she should only produce sons. Reveals Jacobean gender hierarchy — even praise reduces women to reproduction. Modern audiences may find this patronising. Shows how deeply gender inequality was embedded in Jacobean language and thought.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div class="fc-label">Quote — Macduff</div>
+          <div class="fc-text">"Macduff was from his mother's womb / Untimely ripped"</div>
+          <div class="fc-flip-hint">Tap to flip</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-back-label">What to say about it</div>
+          <div class="fc-back-text">Macduff was delivered by caesarean — never conventionally "of woman born." The man who defeats Macbeth (corrupted by female influence) is one almost entirely separated from the female body. Implies female influence as contamination. Modern audiences may find this logic troubling. Jacobean: restoration of male order. A deeply ambiguous moment for gender.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div class="fc-label">Quote — Lady Macbeth</div>
+          <div class="fc-text">"Come to my woman's breasts / And take my milk for gall"</div>
+          <div class="fc-flip-hint">Tap to flip</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-back-label">What to say about it</div>
+          <div class="fc-back-text">Breast milk → poison. Lady Macbeth rejects the most gendered female function. Jacobean: sacred maternal duty corrupted = shocking transgression. Modern: refusal to be reduced to reproductive role. But Shakespeare ultimately punishes her — irony of Act 5 blood imagery.</div>
+        </div>
+      </div>
+    </div>
+          <div class="fc-flip-hint">Tap to flip</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-back-label">The Formula</div>
+          <div class="fc-back-text">Point → Evidence (quote) → Language Analysis (technique + meaning) → Continuity/Change (how does a modern audience respond differently to a Jacobean one?). Without the final step, you won't fully address the Task A question.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <strong style="color:rgba(201,148,42,0.8);">Llanwern High School</strong> · Dr. Anderson's Class · WJEC GCSE English Language &amp; Literature (Double Award) · Unit 5 Task A · Made for Wales · Teaching from 2025
+  <br><a href="https://www.llanwernhighschool.co.uk" target="_blank" style="color:rgba(201,148,42,0.6); text-decoration:none; font-size:0.7rem;">www.llanwernhighschool.co.uk</a>
+</footer>
+
+<script>
+// Tab switching
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// --- PARAGRAPH BUILDER 1 ---
+const pbCorrectOrder = [0, 1, 2, 3];
+let pbCurrentSlot = 0;
+function pbClick(piece) {
+  if (pbCurrentSlot > 3) return;
+  const id = parseInt(piece.dataset.id);
+  const expected = pbCorrectOrder[pbCurrentSlot];
+  const slotEl = document.getElementById('slot-' + pbCurrentSlot);
+  const textEl = document.getElementById('slot-' + pbCurrentSlot + '-text');
+  textEl.textContent = piece.textContent;
+  textEl.style.fontStyle = 'normal';
+  textEl.style.color = '#222';
+  piece.classList.add('used');
+  const fb = document.getElementById('pb-feedback');
+  if (id === expected) {
+    slotEl.classList.add('correct');
+    fb.textContent = '✓ Correct placement!';
+    fb.className = 'pb-feedback good';
+  } else {
+    slotEl.classList.add('wrong');
+    fb.textContent = '✗ Not quite — think about what comes at this stage of a paragraph.';
+    fb.className = 'pb-feedback bad';
+  }
+  pbCurrentSlot++;
+}
+function pbReset() {
+  pbCurrentSlot = 0;
+  for (let i = 0; i < 4; i++) {
+    const sl = document.getElementById('slot-' + i);
+    sl.classList.remove('correct','wrong');
+    document.getElementById('slot-' + i + '-text').textContent = 'Click a piece below to place it here';
+    document.getElementById('slot-' + i + '-text').style.fontStyle = 'italic';
+    document.getElementById('slot-' + i + '-text').style.color = '#aaa';
+  }
+  document.querySelectorAll('#pb-pieces .pb-piece').forEach(p => p.classList.remove('used'));
+  document.getElementById('pb-feedback').textContent = '';
+  document.getElementById('pb-full').style.display = 'none';
+}
+function pbReveal() {
+  document.getElementById('pb-full').style.display = 'block';
+  document.getElementById('pb-full').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+// --- PARAGRAPH BUILDER 2 ---
+const pb2CorrectOrder = [0, 1, 2, 3];
+let pb2CurrentSlot = 0;
+function pb2Click(piece) {
+  if (pb2CurrentSlot > 3) return;
+  const id = parseInt(piece.dataset.id);
+  const expected = pb2CorrectOrder[pb2CurrentSlot];
+  const slotEl = document.getElementById('pb2-slot-' + pb2CurrentSlot);
+  const textEl = document.getElementById('pb2-slot-' + pb2CurrentSlot + '-text');
+  textEl.textContent = piece.textContent;
+  textEl.style.fontStyle = 'normal';
+  textEl.style.color = '#222';
+  piece.classList.add('used');
+  const fb = document.getElementById('pb2-feedback');
+  if (id === expected) {
+    slotEl.classList.add('correct');
+    fb.textContent = '✓ Correct!';
+    fb.className = 'pb-feedback good';
+  } else {
+    slotEl.classList.add('wrong');
+    fb.textContent = '✗ Think about what comes at this stage of the paragraph structure.';
+    fb.className = 'pb-feedback bad';
+  }
+  pb2CurrentSlot++;
+}
+function pb2Reset() {
+  pb2CurrentSlot = 0;
+  for (let i = 0; i < 4; i++) {
+    const sl = document.getElementById('pb2-slot-' + i);
+    sl.classList.remove('correct','wrong');
+    document.getElementById('pb2-slot-' + i + '-text').textContent = 'Click a piece below';
+    document.getElementById('pb2-slot-' + i + '-text').style.fontStyle = 'italic';
+    document.getElementById('pb2-slot-' + i + '-text').style.color = '#aaa';
+  }
+  document.querySelectorAll('#pb2-pieces .pb-piece').forEach(p => p.classList.remove('used'));
+  document.getElementById('pb2-feedback').textContent = '';
+  document.getElementById('pb2-full').style.display = 'none';
+}
+function pb2Reveal() {
+  document.getElementById('pb2-full').style.display = 'block';
+  document.getElementById('pb2-full').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+// --- QUIZ ---
+let quizScore = 0;
+let quizAnswered = 0;
+const totalQs = 8;
+
+function answerQ(qNum, btn, isCorrect, explanation) {
+  const q = document.getElementById('qq-' + qNum);
+  if (q.classList.contains('answered')) return;
+  q.classList.add('answered');
+  const opts = q.querySelectorAll('.quiz-opt');
+  opts.forEach(o => { o.disabled = true; });
+  if (isCorrect) {
+    btn.classList.add('correct');
+    quizScore++;
+  } else {
+    btn.classList.add('wrong');
+    // highlight correct
+    opts.forEach(o => {
+      if (o.onclick.toString().includes('true')) o.classList.add('correct');
+    });
+  }
+  const expEl = document.getElementById('qe-' + qNum);
+  expEl.textContent = explanation;
+  expEl.style.display = 'block';
+  quizAnswered++;
+  if (quizAnswered === totalQs) {
+    const scoreBar = document.getElementById('quiz-score');
+    scoreBar.style.display = 'block';
+    document.getElementById('quiz-score-num').textContent = quizScore + '/' + totalQs;
+    let label = '';
+    if (quizScore === 8) label = 'Full marks! Outstanding preparation.';
+    else if (quizScore >= 6) label = 'Strong performance — review the ones you missed.';
+    else if (quizScore >= 4) label = 'Good start — keep reviewing the quotes and mark scheme.';
+    else label = 'Keep practising — use the flashcards and quotes bank to build your knowledge.';
+    document.getElementById('quiz-score-label').textContent = label;
+    scoreBar.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+}
+function resetQuiz() {
+  quizScore = 0;
+  quizAnswered = 0;
+  for (let i = 0; i < totalQs; i++) {
+    const q = document.getElementById('qq-' + i);
+    q.classList.remove('answered');
+    q.querySelectorAll('.quiz-opt').forEach(o => {
+      o.classList.remove('correct','wrong');
+      o.disabled = false;
+    });
+    document.getElementById('qe-' + i).style.display = 'none';
+  }
+  document.getElementById('quiz-score').style.display = 'none';
+}
+</script>
+</body>
+</html>
